@@ -87,6 +87,22 @@ module Phantomjs
       end
     end
 
+    class Aarch64 < Platform
+      class << self
+        def useable?
+          host_os.include?('linux') and architecture.include?('aarch64')
+        end
+
+        def platform
+          'aarch64-linux'
+        end
+
+        def package_url
+          'https://www.hectomertz.com/phantomjs/phantomjs-2.1.1-linux-aarch64.tar.bz2'
+        end
+      end
+    end
+
     class Linux64 < Platform
       class << self
         def useable?
